@@ -162,14 +162,14 @@ We need to create **4 networks** to support the following host requirements:
 
 
 -------
-## ✅ Guest Network | 10 Hosts
+## 👨‍👩‍👦 Guest Network | 10 Hosts
 
 **Now we need to create the Guest network to meet the 10 host requirements** 
 
 > Using the IP Address: 172.21.42.224 /27
 
 
-**Step 1:** Use the Nosferatz chart to calculate how many host bits we need to hack to meet the 26 hosts requirement
+**Step 1:** Use the Nosferatz chart to calculate how many host bits we need to hack to meet the 10 hosts requirement
 
 ```
           1     1       1     1   | 0    0     0    0
@@ -204,22 +204,18 @@ We need to create **4 networks** to support the following host requirements:
 
 **IP Range:** `172.21.42.224 /28 – 172.21.42.239 /28`  
 
-**Next Available Address:** `172.21.42.240 /27 – ?` = we have more space to make more network, but we only need 4 networks for this warehouse.
+**Next Available Address:** `172.21.42.240 /28 – ?` = we have more space to make more network, but we only need 4 networks for this warehouse.
 
 -----
 
 ## 📊 Final Subnet Allocation (VLSM)
 
-| Network  | IP Range                        | CIDR | Usable Hosts |
-|----------|----------------------------------|------|--------------|
-| Workers  | `172.21.42.0 – 172.21.42.127`    | /25  | 126          |
-| Robots   | `172.21.42.128 – 172.21.42.191`  | /26  | 62           |
-| Servers  | `172.21.42.192 – 172.21.42.223`  | /27  | 30           |
-| Guest    | `172.21.42.224 – 172.21.42.239`  | /28  | 14           |
-
----
-
-
+| Network  | IP Range                        | CIDR | Usable Hosts | Broadcast Address     |
+|----------|----------------------------------|------|--------------|------------------------|
+| Workers  | 172.21.42.0 – 172.21.42.127     | /25  | 126          | 172.21.42.127          |
+| Robots   | 172.21.42.128 – 172.21.42.191   | /26  | 62           | 172.21.42.191          |
+| Servers  | 172.21.42.192 – 172.21.42.223   | /27  | 30           | 172.21.42.223          |
+| Guest    | 172.21.42.224 – 172.21.42.239   | /28  | 14           | 172.21.42.239          |
 
 
 
